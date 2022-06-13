@@ -9,13 +9,17 @@ class EjCompLV1_7 {
         System.out.println("escribe una frase");
         String palabra=scan.nextLine();
         scan.close();
-        char ch;
+        char letraMin;
+        char letraMay;
+        String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String minus = "abcdefghijklmnopqrstuvwxyz";
+        int pos= 0;
         for (int i=0; i<palabra.length(); i++){
-            ch = palabra.charAt(i);
-            if(ch>96 && ch<123){
-                ch=ch-32;
-                System.out.print( (char) ch);
-            }
+            letraMin = palabra.charAt(i);
+            pos = minus.indexOf(letraMin);
+            letraMay = mayus.charAt(pos);
+            palabra.replace(letraMin, letraMay);
         }
+        System.out.println(palabra);
     }
 }
