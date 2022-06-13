@@ -8,6 +8,7 @@ class EjCompLV1_7 {
         Scanner scan=new Scanner(System.in);
         System.out.println("escribe una frase");
         String palabra=scan.nextLine();
+        String palabraMayus=""
         scan.close();
         char letraMin;
         char letraMay;
@@ -17,9 +18,12 @@ class EjCompLV1_7 {
         for (int i=0; i<palabra.length(); i++){
             letraMin = palabra.charAt(i);
             pos = minus.indexOf(letraMin);
-            letraMay = mayus.charAt(pos);
-            palabra.replace(letraMin, letraMay);
+            if(pos != -1){
+                letraMay = mayus.charAt(pos);
+                palabraMay=palabraMay+letraMay;
+            } else {palabraMay=palabraMay+letraMin;}
         }
+        palabra=palabraMay;
         System.out.println(palabra);
     }
 }
